@@ -21,3 +21,27 @@ kubeas = "kubectl_application_shell.cli:app"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=kubectl_application_shell",
+    "--import-mode=importlib",
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "raise typer.Exit",
+    "except .ApiException, MaxRetryError.",
+    "if not directory.exists.",
+]

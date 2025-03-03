@@ -11,6 +11,9 @@ requests = "*"
 kubectl-application-shell = {file = ".", editable = true}
 
 [dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.9"
